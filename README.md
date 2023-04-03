@@ -34,8 +34,7 @@ This application is deployed to [Heroku](https://mern-book-search-2023.herokuapp
 
 ## Application Screenshot
 
-![Application Screenshot](src/assets/images/homepage.png)
-![Application Screenshot](src/assets/images/contact.png)
+![Application Screenshot](/images/homepage.png)
 
 ## Questions
 

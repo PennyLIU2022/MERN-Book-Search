@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Card, Button, Row, Col } from "react-bootstrap";
-import { useQuery, useMutation } from "@apollo/client";
-// import { getMe, deleteBook } from "../utils/API";
+
+import { useQuery, useMutation } from "@apollo/react-hooks";
 import { GET_ME } from "../utils/queries";
 import { REMOVE_BOOK } from "../utils/mutations";
 import Auth from "../utils/auth";
@@ -30,8 +30,8 @@ const SavedBooks = () => {
         update: (cache) => {
           const data = cache.readQuery({ query: GET_ME });
           const userDataCache = data.me;
-          const savedBookCache = userDataCache.savedBooks;
-          const updatedBookCache = savedBookCache.filter(
+          const savedBooksCache = userDataCache.savedBooks;
+          const updatedBookCache = savedBooksCache.filter(
             (book) => book.bookId !== bookId
           );
           data.me.savedBooks = updatedBookCache;
