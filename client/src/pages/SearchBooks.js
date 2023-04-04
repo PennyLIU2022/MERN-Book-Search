@@ -76,6 +76,8 @@ const SearchBooks = () => {
         variables: { book: bookToSave },
         update: (cache) => {
           const { me } = cache.readQuery({ query: GET_ME });
+          // console.log(me)
+          console.log(me.savedBooks);
           cache.writeQuery({
             query: GET_ME,
             data: { me: { ...me, savedBooks: [...me.savedBooks, bookToSave] } },
@@ -92,27 +94,27 @@ const SearchBooks = () => {
 
   return (
     <>
-      <div fluid className="text-light bg-dark pt-5">
+      <div className="text-light bg-dark pt-5">
         <Container>
           <h1>Search for Books!</h1>
           <Form onSubmit={handleFormSubmit}>
-            <Form.Row>
-              <Col xs={12} md={8}>
-                <Form.Control
-                  name="searchInput"
-                  value={searchInput}
-                  onChange={(e) => setSearchInput(e.target.value)}
-                  type="text"
-                  size="lg"
-                  placeholder="Search for a book"
-                />
-              </Col>
-              <Col xs={12} md={4}>
-                <Button type="submit" variant="success" size="lg">
-                  Submit Search
-                </Button>
-              </Col>
-            </Form.Row>
+            {/* <Form.Row> */}
+            <Col xs={12} md={8}>
+              <Form.Control
+                name="searchInput"
+                value={searchInput}
+                onChange={(e) => setSearchInput(e.target.value)}
+                type="text"
+                size="lg"
+                placeholder="Search for a book"
+              />
+            </Col>
+            <Col xs={12} md={4}>
+              <Button type="submit" variant="success" size="lg">
+                Submit Search
+              </Button>
+            </Col>
+            {/* </Form.Row> */}
           </Form>
         </Container>
       </div>
